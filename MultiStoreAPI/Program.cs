@@ -20,4 +20,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.MapGet("/", () => "Welcome to MultiStoreAPI!").Produces(200, typeof(string));
+
 app.Run();
