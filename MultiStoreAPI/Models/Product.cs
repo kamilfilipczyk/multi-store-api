@@ -2,11 +2,8 @@
 
 namespace MultiStoreAPI.Models
 {
-    public class Product
+    public class Product : BaseEntity
     {
-        [Key]
-        public int Id { get; set; }
-
         [MinLength(5)]
         [MaxLength(150)]
         public required string Name { get; set; }
@@ -22,7 +19,6 @@ namespace MultiStoreAPI.Models
         public float Rating { get; set; } = 0;
 
         public int SubcategoryId { get; set; }
-
 
         //relations
         public Subcategory? Subcategory { get; set; }
