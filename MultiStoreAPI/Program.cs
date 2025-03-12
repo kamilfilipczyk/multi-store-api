@@ -1,4 +1,6 @@
 using Scalar.AspNetCore;
+using Microsoft.EntityFrameworkCore;
+using MultiStoreAPI.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
+builder.Services.AddDbContext<MultiStoreDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("SQLServer")));
 
 var app = builder.Build();
 
